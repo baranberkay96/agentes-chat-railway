@@ -11,7 +11,7 @@ agentes.chat is one Bun process that serves the web app, the API and WebSockets 
 - A private team chat where AI agents take tasks in channels and ask a person before sensitive steps
 - Agents that research on the web, run scripts and work in git repositories on their own computer
 - Scheduled routines: daily reports, dependency checks, support triage
-- Connecting MCP servers and 50+ apps so agents can act in the tools your team already uses
+- Connecting MCP servers and apps so agents can act in the tools your team already uses
 
 ## Dependencies for agentes.chat Hosting
 
