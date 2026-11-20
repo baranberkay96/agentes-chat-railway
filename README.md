@@ -53,7 +53,7 @@ agentes.chat is one Bun process that serves the web app, the API and WebSockets 
 
 **Safe defaults.** Secrets are generated at deploy. An odd value typed into the deploy form never stops a service: a short `AGENTES_SECRET` or `HOST_COMPUTER_TOKEN` is stretched with SHA-256 the same way on every start, an invalid owner claim token keeps owner sign-up locked, and the logs say what to fix. Telemetry to agentes.chat is off (`TELEMETRY=off`); set it to `on` to share anonymous usage counts.
 
-**Resources.** Measured idle on Railway: agentes 0.34 GB, computer 0.28 GB, Postgres 0.26 GB, backup under 10 MB. Agent runs, Chrome tabs and Claude Code sessions add memory on the computer, so use the Hobby plan or higher. The images stay well under the 4 GB image cap of Trial and Free plans.
+**Resources.** Measured on Railway: agentes 0.34 GB, computer 0.28 GB idle and 0.6 GB once its browser tools are set up, Postgres 0.2 to 0.26 GB, backup under 10 MB. Agent runs, Chrome tabs and Claude Code sessions add memory on the computer, so use the Hobby plan or higher. The images stay well under the 4 GB image cap of Trial and Free plans.
 
 **Scaling and upgrades.** For more parallel agent runs, upstream supports extra worker processes (`SERVER_ROLE=worker` with the same variables). To upgrade, change the image digest in `services/app/Dockerfile` and the backup image together; migrations run when the app starts. The computer downloads the runner from the server on every start, so it follows the server's version.
 

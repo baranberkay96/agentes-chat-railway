@@ -36,6 +36,7 @@ Improvements here: images pinned by digest; the computer is a prebuilt Debian 13
 | Node.js | 22.23.5, SHA-256 | 2026-11-20 |
 | Claude Code | 2.1.311, SHA-256 | 2026-11-20 |
 | Codex | `@openai/codex@0.171.0` | 2026-11-20 |
+| Computer image size | about 0.7 GB compressed (estimate: 221 MB of Debian packages, Chrome .deb 153 MB, Bun, Node, Claude Code, Codex), far below the 4 GB cap (STANDARD 8.33) | 2026-11-20 |
 | Google Chrome | stable at build time (158.0.8127.36 on the test build), not pinnable (STANDARD 8.27) | 2026-11-20 |
 
 ## Architecture
@@ -68,7 +69,7 @@ Start-script fallbacks (STANDARD 8.29): invalid `PUBLIC_URL` → `https://$RAILW
 | Service | Idle RAM | CPU |
 |---|---|---|
 | agentes | 0.34 GB | ~0.04 vCPU |
-| computer | 0.28 GB (runner connected, no agent running) | ~0 |
+| computer | 0.28 GB (runner connected), 0.60 GB after agent-browser was installed and a browser profile created | ~0 |
 | Postgres | 0.26 GB | ~0.02 vCPU |
 | backup | < 0.01 GB | ~0 |
 
