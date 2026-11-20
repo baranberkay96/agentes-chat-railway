@@ -1,10 +1,10 @@
-# agentes.chat AI Team Chat: Railway template spec
+# AI Team Chat for Humans and Agents (Self-Hosted): Railway template spec
 
 ## Listing
 
 | Field | Value |
 |---|---|
-| Name | **agentes.chat AI Team Chat** (no version label: upstream is at 0.1.10) |
+| Name | **AI Team Chat for Humans and Agents (Self-Hosted)** (neutral name per upstream TRADEMARKS.md; no version label: upstream is at 0.1.10) |
 | Description | Self-hosted team chat where AI agents work in channels, with a computer (71 chars) |
 | Category | AI/ML |
 | Tags | agentes, team-chat, slack-alternative, ai-agents, claude, codex, mcp, self-hosted |

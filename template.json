@@ -1,16 +1,16 @@
 {
-  "name": "agentes.chat AI Team Chat",
+  "name": "AI Team Chat for Humans and Agents (Self-Hosted)",
   "description": "Self-hosted team chat where AI agents work in channels, with a computer",
   "category": "AI/ML",
-  "tags": ["agentes", "team-chat", "slack-alternative", "ai-agents", "claude", "codex", "mcp", "self-hosted"],
-  "image": "https://cdn.jsdelivr.net/gh/agentes-chat/agentes-chat@2f3ccf027413984c5e3e876dd9009d131a0e9a75/apps/web/public/favicon.svg",
+  "tags": ["team-chat", "slack-alternative", "ai-agents", "claude", "codex", "mcp", "self-hosted"],
+  "image": "https://cdn.jsdelivr.net/npm/lucide-static@0.460.0/icons/messages-square.svg",
   "upstream": {
     "agentes": "agentes-chat/agentes-chat (AGPL-3.0) v0.1.10 (2026-11-20); image ghcr.io/agentes-chat/agentes:0.1.10, backup image ghcr.io/agentes-chat/backup:0.1.10",
     "checked": "2026-11-20"
   },
   "services": {
     "agentes": {
-      "icon": "https://cdn.jsdelivr.net/gh/agentes-chat/agentes-chat@2f3ccf027413984c5e3e876dd9009d131a0e9a75/apps/web/public/favicon.svg",
+      "icon": "https://cdn.jsdelivr.net/npm/lucide-static@0.460.0/icons/messages-square.svg",
       "source": {"repo": "baranberkay96/agentes-chat-railway", "rootDirectory": "/services/app"},
       "startCommand": null,
       "healthcheckPath": "/api/health",
