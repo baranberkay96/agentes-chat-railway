@@ -1,7 +1,6 @@
 # The agents' computer for agentes.chat on Railway: a Debian 13 machine with what the agentes runner
-# uses there (Google Chrome, XFCE screens on TigerVNC, Bun, Claude Code, Codex), run as one unprivileged
-# user. The runner itself is downloaded from the agentes.chat service at every start, so it always
-# matches the server's version.
+# uses there (Google Chrome, Bun, Claude Code, Codex), run as one unprivileged user. The runner
+# itself is downloaded from the agentes.chat service at every start, so it always matches the server's version.
 FROM debian:trixie-slim@sha256:a72b4433de1cf7d6bae0c4cee74d0547f58601a643b3375f070c51600d63b6b2
 
 ARG PIN_BUN=1.4.4
@@ -14,15 +13,13 @@ ARG PIN_CODEX=0.171.0
 
 ENV DEBIAN_FRONTEND=noninteractive LANG=C.UTF-8 LC_ALL=C.UTF-8
 
-# Base tools, the packages of the runner's `--desktop` install (screens, theme, CJK fonts, dock) and
-# what its desktop helper calls (python3 with GObject and Xlib, xdotool, scrot, tesseract).
+# Base tools for the agents' commands, and fonts for the pages their browser renders (CJK included).
+# No XFCE/TigerVNC screens: the runner offers desktop use only in system mode (each agent its own
+# user, which needs root and systemd), and a Railway service runs it in single-user mode.
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
       ca-certificates curl unzip xz-utils git openssh-client procps iproute2 less nano jq file \
-      python3 python3-gi python3-xlib gir1.2-atspi-2.0 at-spi2-core xdotool scrot tesseract-ocr \
-      tigervnc-standalone-server xauth dbus-x11 xfce4-session xfwm4 xfce4-panel xfdesktop4 \
-      xfce4-settings thunar xfce4-terminal adwaita-icon-theme elementary-xfce-icon-theme \
-      fonts-noto-core orchis-gtk-theme librsvg2-common fonts-noto-cjk xfce4-docklike-plugin \
+      python3 python3-venv fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji \
  && rm -rf /var/lib/apt/lists/*
 
 # Google Chrome stable, where the runner looks for it (/opt/google/chrome/chrome). Google keeps only the
@@ -64,8 +61,7 @@ RUN curl -fsSL --retry 5 --retry-all-errors -o /tmp/bun.zip \
  && bun --version && node --version && claude --version && codex --version
 
 # The user the agents work as. Its home is the service's volume.
-RUN useradd --uid 1000 --create-home --home-dir /home/agent --shell /bin/bash agent \
- && install -d -m 1777 /tmp/.X11-unix
+RUN useradd --uid 1000 --create-home --home-dir /home/agent --shell /bin/bash agent
 
 COPY --chmod=0755 computer-start.sh /usr/local/bin/computer-start
 COPY --chmod=0755 computer-run.sh /usr/local/bin/computer-run
