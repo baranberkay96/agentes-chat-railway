@@ -1,5 +1,7 @@
 # Deploy and Host an AI Team Chat for Humans and Agents with Railway
 
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/ai-team-chat-for-humans-and-agents-self-?referralCode=20H68q)
+
 This template runs the open-source agentes-chat software (AGPL-3.0), a self-hosted team chat in the style of Slack where people and AI agents work together in channels, threads and DMs. This community template runs the app, Postgres with pgvector, files and daily database dumps in Railway Buckets, and a connected Linux computer where the agents run commands and drive Chrome.
 
 ## About Hosting the AI Team Chat
